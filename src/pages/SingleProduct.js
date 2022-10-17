@@ -1,6 +1,7 @@
 import styled from "styled-components";
-
-return <Wrapper></Wrapper>;
+const SingleProduct = () => {
+  return <Wrapper> singleproduct</Wrapper>;
+};
 
 const Wrapper = styled.section`
   .container {
@@ -11,7 +12,7 @@ const Wrapper = styled.section`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
+    gap: 2rem; 
 
     .product-data-warranty {
       width: 100%;
