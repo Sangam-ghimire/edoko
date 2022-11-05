@@ -1,18 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React from "react";
+import Herosection from "../components/Herosection";
+import Services from "../components/Services";
 const Home = () => {
-    return (
-        <Wrapper className='test'>
-            Home
-        </Wrapper>
-    );
-};
+  const data = {
+    name: "E-Doko",
+  };
 
-const Wrapper=styled.section`
-background-color:${({theme})=>theme.colors.bg};
-width:20rem;
-height:20rem;
-`;
+  return (
+    <>
+      <Herosection myData={data} />;
+      <Services />;
+    </>
+  );
+};
 
 export default Home;
