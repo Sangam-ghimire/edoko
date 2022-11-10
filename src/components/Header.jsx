@@ -1,17 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import Navbar from './Navbar';
+import React from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Header = () => {
-    return (
-        <MainHeader>
-           <NavLink to="/">
-                <img src="./images/E-dokologo.png" alt="logo" />
-           </NavLink>
-           <Navbar/>
-        </MainHeader>
-    );
+  return (
+    <MainHeader>
+      <NavLink to="/">
+        <figure>
+          <img src="./images/E-dokologo.png" alt="logo" loading="lazy" />
+        </figure>
+      </NavLink>
+      <Navbar />
+    </MainHeader>
+  );
 };
 
 const MainHeader = styled.header`
