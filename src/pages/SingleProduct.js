@@ -11,14 +11,30 @@ import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "../components/Star";
 import AddToCart from "../components/AddToCart";
 
+// const API = "http://localhost:5000/singleproduct";
+
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
 
+  console.log("he", singleProduct.product);
+
   const { id } = useParams();
 
+  // const {
+  //   id: alias,
+  //   name,
+  //   company,
+  //   price,
+  //   description,
+  //   category,
+  //   stock,
+  //   stars,
+  //   reviews,
+  //   image,
+  // } = singleProduct?.product || {};
   const {
     id: alias,
     name,
@@ -32,14 +48,16 @@ const SingleProduct = () => {
     image,
   } = singleProduct;
 
+  console.log(id);
   useEffect(() => {
-    getSingleProduct(`${API}?id=${id}`);
+    console.log("useeffect");
+    getSingleProduct(`${API}/${id}`);
   }, []);
 
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
   }
-
+  // return <h1>{singleProduct.product?.name}</h1>;
   return (
     <Wrapper>
       <PageNavigation title={name} />
@@ -49,7 +67,6 @@ const SingleProduct = () => {
           <div className="product_images">
             <MyImage imgs={image} />
           </div>
-
           {/* product dAta  */}
           <div className="product-data">
             <h2>{name}</h2>
@@ -100,6 +117,7 @@ const SingleProduct = () => {
               </p>
             </div>
             <hr />
+            {/* {stock > 0 && <AddToCart product={singleProduct?.product} />} */}
             {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>

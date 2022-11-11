@@ -11,6 +11,7 @@ import reducer from "../reducer/ProductReducer";
 
 const AppContext = createContext();
 
+// const API = "http://localhost:5000/displayitems";
 const API = "https://api.pujakaitem.com/api/products";
 
 const initialState = {
@@ -40,15 +41,20 @@ const AppProvider = ({ children }) => {
 
   const getSingleProduct = async (url) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
+
+    console.log(`sangam ${url}`);
     try {
       const res = await axios.get(url);
+      console.log(res);
       const singleProduct = await res.data;
+      console.log(singleProduct);
       dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
     } catch (error) {
+      console.log(error);
       dispatch({ type: "SET_SINGLE_ERROR" });
     }
   };
-
+  //all product
   useEffect(() => {
     getProducts(API);
   }, []);

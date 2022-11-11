@@ -16,6 +16,7 @@ const initialState = {
     text: "",
     category: "all",
     company: "all",
+    color: "all",
   },
 };
 
@@ -44,10 +45,6 @@ export const FilterContextProvider = ({ children }) => {
   const updateFilterValue = (event) => {
     let name = event.target.name;
     let value = event.target.value;
-
-    if (name === "company") {
-      value = event.target.value;
-    }
 
     return dispatch({ type: "UPDATE_FILTERS_VALUE", payload: { name, value } });
   };
@@ -80,4 +77,4 @@ export const FilterContextProvider = ({ children }) => {
 
 export const useFilterContext = () => {
   return useContext(FilterContext);
-}; 
+};
