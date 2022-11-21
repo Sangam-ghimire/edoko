@@ -7,12 +7,12 @@ import { useContext } from "react";
 import { createContext } from "react";
 import axios from "axios";
 import { useReducer } from "react";
-import reducer from "../reducer/ProductReducer";
+import reducer from "../reducer/ProductReducer.jsx";
 
 const AppContext = createContext();
 
-// const API = "http://localhost:5000/displayitems";
-const API = "https://api.pujakaitem.com/api/products";
+const API = "http://localhost:5000/displayitems";
+// const API = "https://api.pujakaitem.com/api/products";
 
 const initialState = {
   isLoading: false,
@@ -44,7 +44,7 @@ const AppProvider = ({ children }) => {
 
     console.log(`sangam ${url}`);
     try {
-      const res = await axios.get(url);
+      const res = await axios.post(url);
       console.log(res);
       const singleProduct = await res.data;
       console.log(singleProduct);

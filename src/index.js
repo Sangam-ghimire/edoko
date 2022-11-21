@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { AppProvider } from "./context/Productcontext";
 import { FilterContextProvider } from "./context/FilterContext";
 import { CartProvider } from "./context/CartContext";
+import {Provider } from "react-redux"
+import store from "./pages/store"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -13,7 +15,9 @@ root.render(
   <AppProvider>
     <FilterContextProvider>
       <CartProvider>
+<Provider store={store}>
         <App />
+        </Provider>
       </CartProvider>
     </FilterContextProvider>
   </AppProvider>

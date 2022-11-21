@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import Admin from "./pages/Admin";
+import Signin from "./pages/Signin";
+import Addtasks from "./pages/Addtasks";
 import Contact from "./pages/Contact";
 import SingleProduct from "./pages/SingleProduct";
 import About from "./pages/About";
@@ -47,10 +50,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/register" element={<Addtasks />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/admin/*" element={<Admin />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

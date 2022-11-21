@@ -8,7 +8,7 @@ const Product = (currentElement) => {
     <NavLink to={`/singleproduct/${id}`}>
       <div className="card">
         <figure>
-          <img src={image} alt={name} />
+          <img src={`http://localhost:5000/${image}`} alt={name} />
           <figcaption className="caption">{category}</figcaption>
         </figure>
         <div className="card-data">

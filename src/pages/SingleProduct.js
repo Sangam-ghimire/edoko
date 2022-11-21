@@ -11,18 +11,19 @@ import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "../components/Star";
 import AddToCart from "../components/AddToCart";
 
-// const API = "http://localhost:5000/singleproduct";
+const API = "http://localhost:5000/singleproduct";
 
-const API = "https://api.pujakaitem.com/api/products";
+// const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
 
-  console.log("he", singleProduct.product);
+  // console.log("he", singleProduct.product);
+  console.log("hel", singleProduct);
 
   const { id } = useParams();
-
+  console.log("sangammm", id);
   // const {
   //   id: alias,
   //   name,
@@ -48,9 +49,10 @@ const SingleProduct = () => {
     image,
   } = singleProduct;
 
-  console.log(id);
+  console.log(name);
+
   useEffect(() => {
-    console.log("useeffect");
+    console.log(`${API}/${id}`);
     getSingleProduct(`${API}/${id}`);
   }, []);
 
@@ -66,6 +68,8 @@ const SingleProduct = () => {
           {/* product Images  */}
           <div className="product_images">
             <MyImage imgs={image} />
+            {/* <img src={image} /> */}
+           
           </div>
           {/* product dAta  */}
           <div className="product-data">
