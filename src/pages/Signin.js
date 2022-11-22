@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import React from "react";
+import "./Signin.css";
 
 import { FaUser, FaLock } from "react-icons/fa";
 import CompanyLogo from "../publicimages/Group 2.png";
@@ -52,9 +53,9 @@ const Signin = () => {
   };
   return (
     <div className="signin">
-      <div className="header">
+      {/* <div className="header">
         <img src={CompanyLogo} className="companylogo" alt="logo" />
-      </div>
+      </div> */}
 
       <div className="container1">
         <div>
@@ -66,6 +67,7 @@ const Signin = () => {
               <div className="text">LOGIN HERE</div>
               <div className="input-group mb-3">
                 <FaUser className="react-icons" />
+                &#160;&#160;&#160;
                 <input
                   type="text"
                   className="form-control"
@@ -77,8 +79,10 @@ const Signin = () => {
                   }}
                 />
               </div>
+              <div> &#160;&#160;&#160;</div>
               <div className="input-group mb-3">
                 <FaLock className="react-icons" />
+                &#160;&#160;&#160;
                 <input
                   type="password"
                   className="form-control"
@@ -94,20 +98,13 @@ const Signin = () => {
                 <input
                   type="submit"
                   value="Login"
-                  className="btn btn-secondary btn-block login"
+                  className=" btn btn-secondary btn-block login"
                 />
               </div>
-              <div className="input-group mb-3">
-                <Link
-                  style={{
-                    color: "#0dbeb6",
-                    fontWeight: "bold",
-                    padding: "3%",
-                  }}
-                  to="/register"
-                >
-                  Don't have an account go to SIGNUP
-                </Link>
+              <div className=" text input-group mb-3">
+                <NavLink className=" linktext" to="/register">
+                  Don't have an account!!
+                </NavLink>
               </div>
             </form>
           </div>

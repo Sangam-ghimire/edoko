@@ -62,8 +62,7 @@ const Products = () => {
       body: JSON.stringify(products),
     });
   };
-  
-  
+
   return (
     <>
       {Array.from(products).map((product, key) => {

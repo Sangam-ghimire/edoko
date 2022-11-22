@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <Herosection myData={data} />;
-      <FeaturedProducts/>
+      <FeaturedProducts />
       <Services />;
     </>
   );

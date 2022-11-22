@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const MyImage = ({imgs}  ) => {
-  console.log(imgs)
-   let imags=[`http://localhost:5000/${imgs}`]
+const MyImage = ({ imgs }) => {
+  let imags = [`http://localhost:5000/${imgs}`];
   const [mainImage, setMainImage] = useState(imags[0]);
 
   return (
     <Wrapper>
       <div className="grid grid-four-column">
-      { Array.from( imags).map((curElm, index) => {
+        {Array.from(imags).map((curElm, index) => {
           return (
             <figure>
               <img
@@ -21,7 +20,7 @@ const MyImage = ({imgs}  ) => {
               />
             </figure>
           );
-          })}
+        })}
       </div>
       {/* 2nd column  */}
 

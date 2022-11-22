@@ -19,11 +19,8 @@ const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
 
-  // console.log("he", singleProduct.product);
-  console.log("hel", singleProduct);
-
   const { id } = useParams();
-  console.log("sangammm", id);
+
   // const {
   //   id: alias,
   //   name,
@@ -49,10 +46,7 @@ const SingleProduct = () => {
     image,
   } = singleProduct;
 
-  console.log(name);
-
   useEffect(() => {
-    console.log(`${API}/${id}`);
     getSingleProduct(`${API}/${id}`);
   }, []);
 
@@ -69,7 +63,6 @@ const SingleProduct = () => {
           <div className="product_images">
             <MyImage imgs={image} />
             {/* <img src={image} /> */}
-           
           </div>
           {/* product dAta  */}
           <div className="product-data">
@@ -121,7 +114,6 @@ const SingleProduct = () => {
               </p>
             </div>
             <hr />
-            {/* {stock > 0 && <AddToCart product={singleProduct?.product} />} */}
             {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>

@@ -42,15 +42,11 @@ const AppProvider = ({ children }) => {
   const getSingleProduct = async (url) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
 
-    console.log(`sangam ${url}`);
     try {
       const res = await axios.post(url);
-      console.log(res);
       const singleProduct = await res.data;
-      console.log(singleProduct);
       dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
     } catch (error) {
-      console.log(error);
       dispatch({ type: "SET_SINGLE_ERROR" });
     }
   };
