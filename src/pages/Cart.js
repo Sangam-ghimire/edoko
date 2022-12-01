@@ -4,8 +4,11 @@ import CartItem from "../components/CartItem";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 import FormatPrice from "../helpers/FormatPrice";
-
+import axios from "axios";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
+  const navigate = useNavigate();
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
 
   if (cart.length === 0) {
@@ -16,6 +19,58 @@ const Cart = () => {
     );
   }
 
+  const calladminData = async () => {
+    axios
+      .get("http://localhost:5000/about", {
+        method: "GET",
+
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      })
+      .then((response) => {
+        console.log(response.data);
+
+        // if (response.data.name !== "Sergio Aguero" || response.status == 401) {
+        //   navigate("/itemlist");
+        // }
+      })
+      .catch((error) => {
+        console.log(error);
+        navigate("/signin");
+      });
+  };
+  const getInfo = (items) => {
+    axios
+      .get("http://localhost:5000/about", {
+        method: "GET",
+
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      })
+      .then((response) => {
+        console.log(response.data);
+
+        // if (response.data.name !== "Sergio Aguero" || response.status == 401) {
+        //   navigate("/itemlist");
+        // }
+        if (response.status === 404) {
+          navigate("/signin");
+        } else {
+          payMoney(items);
+        }
+      })
+
+      .catch((error) => {
+        console.log(error);
+        navigate("/signin");
+      });
+  };
   const payMoney = async (items) => {
     console.log(items);
     try {
@@ -53,6 +108,7 @@ const Cart = () => {
         <hr />
         <div className="cart-item">
           {cart.map((curElem) => {
+            console.log(curElem);
             return <CartItem key={curElem.id} {...curElem} />;
           })}
         </div>
@@ -264,6 +320,3 @@ const Wrapper = styled.section`
 `;
 
 export default Cart;
-
-
-

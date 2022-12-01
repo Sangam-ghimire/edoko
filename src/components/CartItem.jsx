@@ -12,7 +12,7 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
       <div className="cart-image--name">
         <div>
           <figure>
-            <img src={image} alt={id} />
+            <img src={`http://localhost:5000/${image}`} alt={id} />
           </figure>
         </div>
         <div>
