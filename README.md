@@ -1,2 +1,2 @@
-# thapastore
-E-Commereve Website using react
+# E-Doko
+E-Commereve Website using React, Node, Express
